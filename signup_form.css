@@ -1,89 +1,179 @@
-body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-header{   
-    background-color: rgb(117, 155, 143);
-    padding: 10px;    
+:root {
+  --red: hsl(0, 100%, 74%);
 }
-nav a{
-    display:inline;
-    color: white;
-    text-decoration: none;
-    padding: 14px 20px ;
+.error-icon,
+.error-text {
+  display: none;
 }
-.signup{
-    width: 360px;
-    height: 420px;
-    margin: auto;
-    background-color: rgba(182, 238, 182, 0.507);
-    border-radius: 3px;
+html {
+  font-size: 16px;
+  font-family:serif;
 }
-.login{
-    width: 360px;
-    height: 280px;
-    background-color: rgba(182, 238, 182, 0.507) ;
-    margin: auto;
-    border-radius: 3px;
+#intro {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  background-image: url('https://wallpaperaccess.com/full/1206975.jpg');
+  background-color: hsl(0, 100%, 74%);
+  padding: 100px 0;
 }
-.sign{
-    text-align: center;
-    padding-top: 15px;
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 30px;
+  max-width: 1300px;
+  margin: 0 auto;
 }
-form{
-    width: 300px;
-    margin-left: 20px;
-    
+.left-col {
+  flex: 1;
+  margin-bottom: 50px;
 }
-form label{
-    display: flex;
-    margin-top: 20px;
-    font-size: 18px;
+.left-col h1 {
+  color: white;
+  font-size: 2.5rem;
+  line-height: 3rem;
+  margin-bottom: 2rem;
 }
-form input{
-    width: 100%;
-    padding: 7px;
-    border: 1px solid gray;
-    border-radius: 6px;
+.left-col p {
+  color: white;
+  font-size: 1.3rem;
+  line-height: 1.6rem;
+  max-width: 400px;
 }
-input[type="button"]{
+.right-col {
+  flex: 1;
+}
+.right-col .top-card {
+  background-color: darkblue;
+  color: white;
+  padding: 10px 50px;
+  border-radius: 10px;
+  box-shadow: 0 7px hsla(249, 10%, 26%, 0.404);
+  margin-bottom: 20px;
+}
+.right-col .top-card p {
+  font-size: 3px;
+  line-height: 2.2rem;
+}
+.right-col .top-card p span {
+  font-weight: 700;
+}
+.right-col .form-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px skyblue;
+}
+.field-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+.right-col label {
+  display: none;
+}
+.right-col input,
+.right-col button[type = submit] {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  border: 2px solid grey;
+  padding-left: 20px;
+  outline: none;
+  color: slategrey;
+  font-family: serif;
+  font-size: 1.3px;
+  font-weight: 600;
+}
 
-    width: 320px;
-    height: 35px;
-    margin-top: 20px;
-    background-color: #49c1a2;
-    color: white;
+.right-col input::placeholder {
+  color: slategrey;
+  font-family: serif;
+  font-size:20px;
+  font-weight: 800;
+}
+.right-col button[type = submit] {
+  cursor: pointer;
+  background-color: deepskyblue;
+  box-shadow: 0px 4px darkgrey;
+  color: white;
+  font-weight: 1000;
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+  border: none;
+}
+.right-col button[type = submit]:hover {
+  background-color: darkblue;
+}
+.right-col .form-footer {
+  margin-top: 50px;
+  color: black;
+}
+.right-col .form-footer span {
+  color: blue;
+  font-weight: 700;
+}
+.error-text {
+  text-align: right;
+  bottom: 0;
+  right: 0;
+  font-size: .8rem;
+  font-style: italic;
+  color: var(--red);
+  font-weight: 500;
+}
+.error-icon {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  top: 28%;
+}
+.field-group.error .error-text,
+.field-group.error .error-icon {
+  display: block;
+}
+@media only screen and (min-width: 768px) {
+  html {
     font-size: 18px;
-    cursor: pointer;
-    
-}
-input[type="button"]:hover{
-    background-color: #3e8e41;
-}
-input[type="button"]:active{
-    background-color:  #3e8e41;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);;
-}
-.para2{
-    text-align: center;
-    color: black;
-    font-size: 15px;
-    margin-top: 2px;
-}
-.para2 a{
-    color: #49c1a2;
-}
-footer{
-    background-color: rgb(117, 155, 143); 
-    padding: 10px;
-    overflow: hidden;
-}
-footer a{
-     display:inline;
-     color: white;
-     text-decoration: none;
-     padding: 14px 20px ;
-}
-.copyright{
-    float: right;
+  }
+  .container {
+    flex-direction: row;
+  }
+  .left-col {
+    text-align: left;
+    padding-right: 80px;
+  }
+  .left-col h1 {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+  .left-col p {
+    font-size: 1.1rem;
+  }
+  .right-col .top-card p {
+    font-size: 1.1rem;
+  }
+  .right-col .top-card {
+    padding: 5px;
+  }
+  .right-col input::placeholder,
+  .right-col input {
+    font-size: 1.05rem;
+  }
+  .right-col .form-footer {
+    margin-top: 10px;
+    font-size: .7rem;
+  }
 }
