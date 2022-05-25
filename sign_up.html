@@ -1,62 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="signup_form.css">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  
+  
+<link rel="stylesheet" href="signup.css">
+
+  <title>sign up form</title>
+
 </head>
 <body>
-    <header>
-        <nav>
-            <img src="images/Let 's Plant.png" alt="Green Organic Logo" style="height: 140px; border-radius: 50%;" >
-            <a href="home.html">Home</a>
-            <a href="About.html">About Us</a>
-            <a href="IndoorPlants.html">Shop</a>
-            <a href="info.html">Info</a>
-            <a href="login.html">Login</a>
-        </nav>
-    </header>
-    <main>
-        <div class="signup">
-            <h1 class="sign">Sign Up</h1>
-            <form name="form2">
-                <label>First Name</label>
-                <input type="text" name="fname1"  placeholder="Neha" required>
-                <label>Last Name</label>
-                <input type="text" name="lname1"  placeholder="Kapoor" required>
-                <label>Email</label>
-                <input type="email" name="email1" id="email1"  placeholder="kapoor@gmail.com" required>
-                <label>Password</label>
-                <input type="password" name="password1" required>
-                <input type="button" value="Submit" onclick="display();">
-            </form>
+  <section id="intro">
+    <div class="container">
+      <div class="left-col">
+        
+        <p style="font-size:30px"><b>JOIN NOW BY SIGNING UP. </b></p>
+      </div>
+      <div class="right-col">
+        <div class="top-card">
+          <p><span>SIGN UP NOW</span> </p>
         </div>
-        <p class="para2">Already have an account? <a href="login.html">Login here</a></p>
-    </main>
-    <footer>
-        <a href="home.html">Home</a>
-        <a href="About.html">About Us</a>
-        <a href="IndoorPlants.html">Shop</a>
-        <a href="info.html">Info</a>
-        <a href="login.html">Login</a>
-        <br>
-        <br>
-        <a href="IndoorPlants.html">Indoor Plants |</a>
-        <a href="Flowering.html">Flowering Plants |</a>
-        <a href="Outdoor.html">Outdoor Plants |</a>
-        <a href="clay.html">Clay Pots</a>
-        <a class="copyright">&copy; 2022 | Green Organic</a>
-    </footer>
-    <script language="JavaScript" type="text/javascript">
-        function display() {
-        DispWin = window.open('','NewWin','toolbar=no,status=no,width=300,height=200')
-        message = "<ul><li><b>FIRST NAME: </b>" + document.form2.fname1.value;
-        message += "<li><b>LAST NAME: </b>" + document.form2.lname1.value;
-        message+="<li><b>EMAIL: </b>" + document.form2. email1.value + "</ul>";
-        DispWin.document.write(message);
+        <div class="form-container">
+          <form action="#">
+            <div class="field-group">
+              <label for="first-name">First Name</label>
+              <input name='first-name' id="first-name" type="text" placeholder="First Name">
+               
+              <p class="error-text">First Name cannot be empty</p>              
+            </div>
+            <div class="field-group">
+              <label for="last-name">last Name</label>
+              <input name='last-name' id="last-name" type="text" placeholder="Last Name">
+              
+              <p class="error-text">Last Name cannot be empty</p>              
+            </div>
+            <div class="field-group">
+              <label for="Email">Email Address</label>
+              <input name='Email' id="Email" value="" type="email" placeholder="Email Address">
+              
+              <p class="error-text">Looks like this is not email</p>              
+            </div>
+            <div class="field-group">
+              <label for="password">Password Address</label>
+              <input name='password' id="password" value="" type="password" placeholder="Password">
+              
+              <p class="error-text">Password cannot be empty</p>              
+            </div>
+            <button type="submit">SUBMIT</button>
+            <p class="form-footer">By clicking the button, you are agreeing to our <span>Terms and Services</span></p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+ <script> const form = document.querySelector('.form-container form');
+const inputs = document.querySelectorAll('.form-container input');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  inputs.forEach((input) => {
+    // console.log(input.value);
+    if (!input.value) {
+      input.parentElement.classList.add('error');
+    } else {
+      input.parentElement.classList.remove('error');
+      if (input.type == 'email') {
+        if (validateEmail(input.value)) {
+          input.parentElement.classList.remove('error');
+        } else {
+          input.parentElement.classList.add('error');
         }
-        </script>
+      }
+    }
+  });
+});
+
+function validateEmail (email) {
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+
+
+</script>
+
+
+
+
+  
+ 
 </body>
+
 </html>
